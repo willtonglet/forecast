@@ -1,0 +1,28 @@
+.inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  min-width: 15rem;
+}
+
+input {
+  padding: 0.5rem;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+button {
+  min-width: 15rem;
+  padding: 0.5rem;
+}

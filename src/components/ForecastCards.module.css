@@ -1,0 +1,37 @@
+.forecastCards {
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  grid-auto-rows: 20rem;
+  max-width: 100%;
+}
+
+.current {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+@media screen and (min-width: 720px) {
+  .forecastCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .current {
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .forecastCards {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .current {
+    grid-column-end: 4;
+    grid-row-end: 3;
+  }
+}

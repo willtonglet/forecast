@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #eee;
+  justify-content: space-between;
+}
+
+.day {
+  background-color: rgb(0, 255, 255);
+}
+
+.night {
+  background-color: rgb(9, 9, 53);
+  color: #fff;
+}
+
+.latLon {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.degrees.current {
+  font-size: 7rem;
+}
+
+.degrees {
+  font-size: 4rem;
+  margin: 2rem 0;
+  font-weight: 100;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.reload {
+  padding: 0.5rem;
+  border: none;
+  background-color: #ccc;
+  margin-top: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
