@@ -10,6 +10,9 @@ interface ForecastCard extends Coordinates {
   temperature2m?: number;
   isDay?: number;
   weatherCode?: number;
+  relativeHumidity2m?: number;
+  apparentTemperature?: number;
+  windSpeed10m?: string;
 }
 
 /**

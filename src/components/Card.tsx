@@ -15,15 +15,6 @@ interface Card extends ForecastCard {
 
 /**
  * Componente para renderizar um cartão de previsão do tempo.
- * @param latitude Latitude da localização associada ao cartão.
- * @param longitude Longitude da localização associada ao cartão.
- * @param isDay Indica se é dia (1) ou noite (0).
- * @param temperature2m Temperatura atual em graus Celsius.
- * @param time Timestamp representando o momento da previsão.
- * @param weatherCode Código do tempo.
- * @param onClickReload Função de retorno de chamada a ser executada quando o botão de carregar for clicado.
- * @param isLoading Indica se o cartão está carregando.
- * @param isCurrent Indica se o cartão representa a previsão do tempo atual.
  */
 const Card = ({
   latitude,
@@ -32,6 +23,9 @@ const Card = ({
   temperature2m,
   time,
   weatherCode,
+  apparentTemperature,
+  windSpeed10m,
+  relativeHumidity2m,
   onClickReload,
   isLoading,
   isCurrent = false,
@@ -68,7 +62,15 @@ const Card = ({
       <h3 className={clsx(styles.degrees, isCurrent && styles.current)}>
         {temperature2m}°
       </h3>
-      <span>{weatherCodeResolver(weatherCode)}</span>
+      <div>
+        <span>Sensação de {apparentTemperature}°</span>
+        <br />
+        <span>{weatherCodeResolver(weatherCode)}</span>
+        <br />
+        <span>Ventos a {windSpeed10m}km/h</span>
+        <br />
+        Umidade em {relativeHumidity2m}%
+      </div>
     </div>
   );
 };

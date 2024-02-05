@@ -29,7 +29,14 @@ const useForecastData = ({
     () => ({
       latitude,
       longitude,
-      current: ["temperature_2m", "is_day", "weather_code"],
+      current: [
+        "temperature_2m",
+        "relative_humidity_2m",
+        "apparent_temperature",
+        "is_day",
+        "weather_code",
+        "wind_speed_10m",
+      ],
     }),
     [latitude, longitude]
   );
@@ -45,8 +52,11 @@ const useForecastData = ({
       const weatherData = {
         time: new Date((Number(current.time()) + utcOffsetSeconds) * 1000),
         temperature2m: Math.floor(current.variables(0)!.value()),
-        isDay: current.variables(1)!.value(),
-        weatherCode: current.variables(2)!.value(),
+        relativeHumidity2m: current.variables(1)!.value(),
+        apparentTemperature: Math.floor(current.variables(2)!.value()),
+        isDay: current.variables(3)!.value(),
+        weatherCode: current.variables(4)!.value(),
+        windSpeed10m: current.variables(5)!.value().toFixed(2),
         latitude,
         longitude,
       };
