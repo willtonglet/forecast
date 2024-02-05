@@ -1,4 +1,5 @@
 import { Coordinates } from "../state/latitudeLongitudeState";
+import { savedForecastCoordinates } from "../utils/validateForecastToStore";
 import CurrentForecast from "./CurrentForecast";
 import ForecastCard from "./ForecastCard";
 import styles from "./ForecastCards.module.css";
@@ -8,7 +9,7 @@ import styles from "./ForecastCards.module.css";
  */
 const ForecastCards = () => {
   const storageCoordinates: Coordinates[] = JSON.parse(
-    localStorage.getItem("forecastCoordinates") as string
+    savedForecastCoordinates as string
   );
 
   return (

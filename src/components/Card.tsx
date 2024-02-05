@@ -8,7 +8,7 @@ import ForecastCard from "./ForecastCard";
  * Props para o componente Card.
  */
 interface Card extends ForecastCard {
-  onClick?: () => void;
+  onClickReload?: () => void;
   isLoading?: boolean;
   isCurrent?: boolean;
 }
@@ -20,8 +20,8 @@ interface Card extends ForecastCard {
  * @param isDay Indica se é dia (1) ou noite (0).
  * @param temperature2m Temperatura atual em graus Celsius.
  * @param time Timestamp representando o momento da previsão.
- * @param weatherCode Código do tempo (por exemplo, "01d" para céu claro durante o dia).
- * @param onClick Função de retorno de chamada a ser executada quando o cartão for clicado.
+ * @param weatherCode Código do tempo.
+ * @param onClickReload Função de retorno de chamada a ser executada quando o botão de carregar for clicado.
  * @param isLoading Indica se o cartão está carregando.
  * @param isCurrent Indica se o cartão representa a previsão do tempo atual.
  */
@@ -32,7 +32,7 @@ const Card = ({
   temperature2m,
   time,
   weatherCode,
-  onClick,
+  onClickReload,
   isLoading,
   isCurrent = false,
 }: Card) => {
@@ -46,7 +46,7 @@ const Card = ({
         </h2>
         <button
           className={styles.reload}
-          onClick={onClick}
+          onClick={onClickReload}
           disabled={isLoading}
         >
           {isLoading ? "...Carregando" : "Recarregar"}

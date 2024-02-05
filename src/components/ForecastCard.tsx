@@ -29,7 +29,7 @@ const ForecastCard = ({ latitude, longitude }: ForecastCard) => {
 
   return (
     <Card
-      onClick={fetchForecast}
+      onClickReload={fetchForecast}
       latitude={latitude}
       longitude={longitude}
       isLoading={isLoading}

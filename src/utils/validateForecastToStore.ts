@@ -1,19 +1,21 @@
 import { Coordinates } from "../state/latitudeLongitudeState";
 import { removeDuplicates } from "./removeduplicates";
 
-/**
- * Função que verfica se existem coordenadas salvas na localStorage
- * @param coordinates coordenadas de latitude e longitude
- */
-export function validateForecastToStore(coordinates: Coordinates) {
-  const savedForecastCoordinates = localStorage.getItem("forecastCoordinates");
+// Chave de armazenamento para as coordenadas do forecast
+const FORECAST_STORAGE_KEY = "forecastCoordinates";
 
+// Recupera as coordenadas do forecast do localStorage
+export const savedForecastCoordinates =
+  localStorage.getItem(FORECAST_STORAGE_KEY);
+
+// Função para validar e armazenar as coordenadas do forecast
+export function validateForecastToStore(coordinates: Coordinates) {
   if (savedForecastCoordinates) {
     try {
       const parsedCoordinates = JSON.parse(savedForecastCoordinates);
       if (Array.isArray(parsedCoordinates)) {
         localStorage.setItem(
-          "forecastCoordinates",
+          FORECAST_STORAGE_KEY,
           JSON.stringify(removeDuplicates([coordinates, ...parsedCoordinates]))
         );
       } else {
@@ -23,6 +25,6 @@ export function validateForecastToStore(coordinates: Coordinates) {
       console.error("Erro ao fazer a análise do JSON:", error);
     }
   } else {
-    localStorage.setItem("forecastCoordinates", JSON.stringify([coordinates]));
+    localStorage.setItem(FORECAST_STORAGE_KEY, JSON.stringify([coordinates]));
   }
 }
