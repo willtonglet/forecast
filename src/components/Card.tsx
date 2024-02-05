@@ -30,6 +30,10 @@ const Card = ({
   isLoading,
   isCurrent = false,
 }: Card) => {
+  if (isLoading) {
+    return <div className={styles.card}>Carregando...</div>;
+  }
+
   if (!time && !isDay && !temperature2m && !weatherCode && !isCurrent) {
     return (
       <div className={styles.card}>
